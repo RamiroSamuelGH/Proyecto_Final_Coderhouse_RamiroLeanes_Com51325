@@ -24,11 +24,18 @@
         {% block navBar %}
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
+                {% if user.is_authenticated %}
+                <a class="navbar-brand" href="{% url "inicio" %}">INICIO</a>
+                <a class="navbar-brand" href="{% url "listaDeBlogs" %}">Blogs</a>
+                <a class="navbar-brand" href="{% url "inicioMensajeria" %}">Mensajeria</a>
+                <a class="navbar-brand" href="{% url "perfilDeUsuario" %}">{{ user.username }}</a>
+                <img src="{{ avatar }}" alt="Avatar" style="width:50px;height:50px;">
+                <a class="navbar-brand" href="{% url "logout" %}">Cerrar Sesion</a>
+                {% else %}
                 <a class="navbar-brand" href="{% url "inicio" %}">INICIO</a>
                 <a class="navbar-brand" href="{% url "iniciarSesion" %}">Iniciar Sesion</a>
                 <a class="navbar-brand" href="{% url "registrarse" %}">Registrarse</a>
-                <a class="navbar-brand" href="{% url "inicioAppAccounts" %}">Cuentas</a>
-                <a class="navbar-brand" href="{% url "inicio" %}">Mensajeria</a>
+                {% endif %}
                 
             </div>
         </nav>
@@ -56,7 +63,7 @@
         <!-- Portfolio Section-->
         {% block primerSeccionPagina %}
 
-        <section class="page-section portfolio" id="portfolio">
+        <section class="page-section" id="">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
@@ -182,26 +189,17 @@
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Seguime en Redes Sociales</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-discord "></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/ramiro-leanes-82090425a/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://discordapp.com/users/293160885906702336"><i class="fab fa-fw fa-discord "></i></a>
                     </div>
                     <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+            <div class="container"><small>Copyright &copy; Proyecto Coderhouse 2023</small></div>
         </div>
                
         <!-- Bootstrap core JS-->

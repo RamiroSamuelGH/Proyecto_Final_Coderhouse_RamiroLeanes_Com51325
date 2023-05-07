@@ -2,5 +2,5 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-admin.site.register(UsuarioRegistrado)
 admin.site.register(BlogCreado)
+admin.site.register(Avatar)
